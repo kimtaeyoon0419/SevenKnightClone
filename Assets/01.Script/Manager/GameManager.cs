@@ -6,23 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public static GameManager GetOrCreate()
+    {
+        return instance ??= new GameManager();
+    }
+
     public int maxSquadSize;
 
     public int monney;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
 
     void Update()
     {
