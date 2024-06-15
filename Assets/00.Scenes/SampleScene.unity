@@ -341,6 +341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 0_Kight
       objectReference: {fileID: 0}
+    - target: {fileID: 7638985246995783451, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1715399505}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -828,6 +832,11 @@ Transform:
   - {fileID: 2097606458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1715399505 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8086202439210286133, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
+  m_PrefabInstance: {fileID: 740598469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2097606457
 GameObject:
   m_ObjectHideFlags: 0

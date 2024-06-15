@@ -12,12 +12,8 @@ public enum PlayerCharType
 /// <summary>
 /// 플레이어 캐릭터 스크립트
 /// </summary>
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerCharater : Character
 {
-    [Header("Component")]
-    protected Rigidbody2D rigid;
-
     [Header("CharType")]
     [SerializeField] protected PlayerCharType charType;
 
@@ -75,6 +71,7 @@ public class PlayerCharater : Character
         Character character = enemy.GetComponent<Character>();
         if (charType == PlayerCharType.Tank || charType == PlayerCharType.Dps)
         {
+            anim.SetTrigger(hashAttack);
             character.TakeDmg(atkPower);                                // 현재 공격력만큼 적의 체력을 깎음
         }
         else

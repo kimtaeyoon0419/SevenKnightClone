@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /// <summary>
 /// 캐릭터의 현재 상태
@@ -16,6 +17,7 @@ public enum CharacterState
 /// <summary>
 /// 모든 캐릭터의 최상위 클래스
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Character : MonoBehaviour
 {
     [Header("Stat")]
@@ -35,6 +37,21 @@ public abstract class Character : MonoBehaviour
     [Header("enemy")]
     [SerializeField] protected GameObject enemy;
     [SerializeField] protected LayerMask enemyLayer;
+
+    [Header("Component")]
+    protected Rigidbody2D rigid;
+    [SerializeField] protected Animator anim;
+
+    [Header("Animation")]
+    protected readonly int hashRun = Animator.StringToHash("Run");
+    protected readonly int hashAttack = Animator.StringToHash("Attack");
+    protected readonly int hashDie = Animator.StringToHash("Die");
+
+    private void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -56,6 +73,7 @@ public abstract class Character : MonoBehaviour
     {
         if (state == CharacterState.move && enemy != null)
         {
+            anim.SetBool(hashRun, true);
             transform.position = Vector2.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
         }
     }
@@ -82,6 +100,8 @@ public abstract class Character : MonoBehaviour
             if (distace <= atkRange)
             {
                 state = CharacterState.fight;
+                anim.SetBool(hashRun, false);
+
                 if (curAtkSpeed <= 0)
                 {
                     Attack(enemy);
