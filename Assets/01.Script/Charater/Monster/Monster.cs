@@ -2,17 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class Monster : Character
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override GameObject FindEnemy()
     {
-        
+        GameObject nearObject = null;
+        Collider2D[] aroundEnemy;
+        float distance = float.MaxValue;
+
+        aroundEnemy = Physics2D.OverlapCircleAll(attackPos.transform.position, findRange, enemyLayer);
+        if (aroundEnemy == null) return null;
+
+        foreach (Collider2D curObject in aroundEnemy)
+        {
+            float curdistance = Vector2.Distance(transform.position, curObject.transform.position);
+
+            if (curdistance < distance)
+            {
+                Character curCharacter = curObject.GetComponent<Character>();
+                distance = curdistance;
+                if (curCharacter != null && curCharacter.state != CharacterState.die)
+                    nearObject = curObject.gameObject;
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        return nearObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Attack(GameObject enemy)
     {
-        
+        Character character = enemy.GetComponent<Character>();
+        anim.SetTrigger(hashAttack);
+
+        character.TakeDmg(atkPower);                                // 현재 공격력만큼 적의 체력을 깎음
     }
 }

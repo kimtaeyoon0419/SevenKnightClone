@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
 
 /// <summary>
 /// 캐릭터의 현재 상태
@@ -58,6 +59,27 @@ public abstract class Character : MonoBehaviour
         curHp = maxHp;
     }
 
+    protected virtual void Update()
+    {
+        if (state != CharacterState.die)
+        {
+            {
+                if (enemy == null || !enemy.activeSelf)
+                {
+                    enemy = FindEnemy();
+                }
+                else
+                {
+                    TakeAttack();
+                    Move2Enemy();
+                    LookEnemy();
+                }
+                if (curAtkSpeed > 0) curAtkSpeed -= Time.deltaTime;
+
+            }
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -75,6 +97,23 @@ public abstract class Character : MonoBehaviour
         {
             anim.SetBool(hashRun, true);
             transform.position = Vector2.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
+        }
+    }
+
+    protected virtual void LookEnemy()
+    {
+        //Vector2 newPos = enemy.transform.position - transform.position;
+        //float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        Vector2 rotPos = enemy.transform.position - transform.position;
+        if(rotPos.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if(rotPos.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);   
         }
     }
 
@@ -153,7 +192,15 @@ public abstract class Character : MonoBehaviour
     #region Die
     protected virtual void Die()
     {
-
+        if (state != CharacterState.die)
+        {
+            anim.SetTrigger(hashDie);
+            state = CharacterState.die;
+        }
+        else
+        {
+            return;
+        }
     }
     #endregion
 

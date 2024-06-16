@@ -153,10 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterList:
-  - {fileID: 983913190}
+  - {fileID: 7573831300888823078, guid: 56f667e73963c478ebfbb0b59ec981b5, type: 3}
   spawnedMonsters: []
   rangeObject: {fileID: 1107759266}
-  rangeCollider: {fileID: 0}
 --- !u!4 &44253518
 Transform:
   m_ObjectHideFlags: 0
@@ -427,19 +426,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999619
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008726557
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -455,7 +454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -831,7 +830,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.15952778, y: -1.7547941}
