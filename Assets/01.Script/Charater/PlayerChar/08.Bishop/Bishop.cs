@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knight : PlayerCharater
+public class Bishop : PlayerCharater
 {
     private void Update()
     {

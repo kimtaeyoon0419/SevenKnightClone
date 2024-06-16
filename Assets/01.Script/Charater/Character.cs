@@ -26,9 +26,9 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float atkPower;
     [SerializeField] protected float atkSpeed;
     [SerializeField] protected float curAtkSpeed;
-    [SerializeField] protected float findRange;
+    [SerializeField] protected float findRange = 5f;
     [SerializeField] protected float atkRange;
-    [SerializeField] protected float speed;
+    [SerializeField] protected float speed = 2f;
     [SerializeField] public CharacterState state;
 
     [Header("attackPos")]
@@ -58,7 +58,7 @@ public abstract class Character : MonoBehaviour
         curHp = maxHp;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(attackPos.transform.position, findRange);
@@ -138,7 +138,12 @@ public abstract class Character : MonoBehaviour
         if (curHp <= 0)
         {
             state = CharacterState.die;
+            curHp = 0;
             Die();
+        }
+        if(curHp > maxHp)
+        {
+            curHp = maxHp;
         }
     }
 

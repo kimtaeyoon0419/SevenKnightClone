@@ -6,6 +6,7 @@ public class SquadManager : MonoBehaviour
 {
     public static SquadManager instance;
 
+    [Header("Squad")]
     /// <summary>
     /// 현재 스쿼드 사이즈
     /// </summary>
@@ -16,5 +17,19 @@ public class SquadManager : MonoBehaviour
     [SerializeField] private List<GameObject> memberList = new List<GameObject>();
     public List<GameObject> MemberList { get { return memberList; } }
 
+    [Header("CameraUnit")]
+    [SerializeField] private GameObject cameraUnit;
 
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }

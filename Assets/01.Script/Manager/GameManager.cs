@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
 
     public int monney;
 
-    void Update()
+    private void Awake()
     {
-        
+        GetOrCreate();
     }
 }

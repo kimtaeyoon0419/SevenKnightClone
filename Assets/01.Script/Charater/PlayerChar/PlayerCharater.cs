@@ -69,9 +69,9 @@ public class PlayerCharater : Character
     protected override void Attack(GameObject enemy)
     {
         Character character = enemy.GetComponent<Character>();
+        anim.SetTrigger(hashAttack);
         if (charType == PlayerCharType.Tank || charType == PlayerCharType.Dps)
         {
-            anim.SetTrigger(hashAttack);
             character.TakeDmg(atkPower);                                // 현재 공격력만큼 적의 체력을 깎음
         }
         else
