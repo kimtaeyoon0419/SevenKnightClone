@@ -17,6 +17,10 @@ public class PlayerCharater : Character
     [Header("CharType")]
     [SerializeField] protected PlayerCharType charType;
 
+    private void Start()
+    {
+        SquadManager.instance.MemberList.Add(gameObject);
+    }
 
 
     /// <summary>

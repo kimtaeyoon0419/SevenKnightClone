@@ -153,8 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterList:
-  - {fileID: 7573831300888823078, guid: 56f667e73963c478ebfbb0b59ec981b5, type: 3}
-  spawnedMonsters: []
+  - parentsObject: {fileID: 756405349}
+    monster: {fileID: 7573831300888823078, guid: 56f667e73963c478ebfbb0b59ec981b5, type: 3}
+  spawnedMonsters:
+  - {fileID: 0}
   rangeObject: {fileID: 1107759266}
 --- !u!4 &44253518
 Transform:
@@ -170,6 +172,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1107759267}
+  - {fileID: 2039985826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &118415851
@@ -248,9 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curSquadSize: 0
-  memberList:
-  - {fileID: 1178943528}
-  - {fileID: 1220268002}
+  memberList: []
   cameraUnit: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
@@ -468,6 +469,37 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1178943529}
   m_SourcePrefab: {fileID: 100100000, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
+--- !u!1 &756405349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756405350}
+  m_Layer: 0
+  m_Name: SkullKnights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756405350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756405349}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.015079287, y: 1.8029222, z: -8.513528}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2039985826}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &786487238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -685,90 +717,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &983913190
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 983913192}
-  - component: {fileID: 983913191}
-  m_Layer: 0
-  m_Name: Monster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &983913191
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983913190}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &983913192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983913190}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.75, y: -0.1946206, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107759266
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,11 +834,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
---- !u!1 &1220268002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7573831300888823078, guid: 9b9c007db1d704b7ab05bcecf7704cf3, type: 3}
-  m_PrefabInstance: {fileID: 1337352775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1337352775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1072,6 +1015,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.27}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2039985825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039985826}
+  m_Layer: 0
+  m_Name: Monsters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2039985826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039985825}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.015079287, y: -1.8029222, z: 8.513528}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 756405350}
+  m_Father: {fileID: 44253518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2097606457
 GameObject:
   m_ObjectHideFlags: 0
@@ -9656,8 +9631,7 @@ SceneRoots:
   - {fileID: 1567360511}
   - {fileID: 118415852}
   - {fileID: 289281640}
-  - {fileID: 44253518}
   - {fileID: 740598469}
   - {fileID: 1337352775}
   - {fileID: 786487238}
-  - {fileID: 983913192}
+  - {fileID: 44253518}

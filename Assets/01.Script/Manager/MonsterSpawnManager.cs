@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Monsters
+{
+    public GameObject parentsObject;
+    public GameObject monster;
+}
+
 public class MonsterSpawnManager : MonoBehaviour
 {
     [Header("MonsterList")]
-    [SerializeField] private List<GameObject> monsterList = new List<GameObject>();
+    [SerializeField] private List<Monsters> monsterList = new List<Monsters>();
     [SerializeField] private List<GameObject> spawnedMonsters = new List<GameObject>();
 
     [Header("SpawnRange")]
     [SerializeField] private GameObject rangeObject;
     private BoxCollider2D rangeCollider;
-
+     
     private void Awake()
     {
         rangeCollider = rangeObject.GetComponent<BoxCollider2D>();
@@ -33,7 +40,7 @@ public class MonsterSpawnManager : MonoBehaviour
 
             for (int i = 0; i < monsterCount; i++)
             {
-                GameObject spawnMonster = Instantiate(monsterList[monsterType], spawnPos(), Quaternion.identity);
+                GameObject spawnMonster = Instantiate(monsterList[monsterType].monster, spawnPos(), Quaternion.identity, monsterList[monsterType].parentsObject.transform);
 
                 spawnedMonsters.Add(spawnMonster);
             }
