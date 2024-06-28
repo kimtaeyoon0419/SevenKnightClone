@@ -22,6 +22,7 @@ public enum CharacterState
 public abstract class Character : MonoBehaviour
 {
     [Header("Stat")]
+    public string charName;
     [SerializeField] protected float maxHp;
     [SerializeField] public float curHp { get; protected set; }
     [SerializeField] protected float atkPower;
@@ -59,6 +60,11 @@ public abstract class Character : MonoBehaviour
         curHp = maxHp;
     }
 
+    protected virtual void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     protected virtual void Update()
     {
         if (state != CharacterState.die)
@@ -74,8 +80,10 @@ public abstract class Character : MonoBehaviour
                     Move2Enemy();
                     LookEnemy();
                 }
-                if (curAtkSpeed > 0) curAtkSpeed -= Time.deltaTime;
-
+                if (curAtkSpeed > 0)
+                {
+                    curAtkSpeed -= Time.deltaTime;
+                }
             }
         }
     }
@@ -174,11 +182,10 @@ public abstract class Character : MonoBehaviour
     public virtual void TakeDmg(float damage)
     {
         curHp -= damage;
-        if (curHp <= 0)
+        if (curHp <= 0 && state != CharacterState.die)
         {
-            state = CharacterState.die;
             curHp = 0;
-            Die();
+            StartCoroutine(Die());
         }
         if(curHp > maxHp)
         {
@@ -190,16 +197,21 @@ public abstract class Character : MonoBehaviour
     /// Á×À½
     /// </summary>
     #region Die
-    protected virtual void Die()
+    protected virtual IEnumerator Die()
     {
         if (state != CharacterState.die)
         {
             anim.SetTrigger(hashDie);
+            Debug.Log("»ç¸Á ¾Ö´Ï¸ÞÀÌ¼Ç");
             state = CharacterState.die;
+
+            yield return new WaitForSeconds(1.5f);
+
+            gameObject.SetActive(false);
         }
         else
         {
-            return;
+            yield return null;
         }
     }
     #endregion

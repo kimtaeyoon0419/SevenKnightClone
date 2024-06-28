@@ -3471,7 +3471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 200
-  atkPower: 20
+  atkPower: 100
   atkSpeed: 2
   curAtkSpeed: 0
   findRange: 5

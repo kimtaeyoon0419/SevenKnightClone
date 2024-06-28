@@ -22,6 +22,11 @@ public class PlayerCharater : Character
         SquadManager.instance.MemberList.Add(gameObject);
     }
 
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        MonsterSpawnManager.instance.spawnedMonsters.Remove(gameObject);
+    }
 
     /// <summary>
     /// 가장 가까운 적 혹은 팀을 찾음
