@@ -32,4 +32,10 @@ public class SquadManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void LateUpdate()
+    {
+        curSquadSize = memberList.Count;
+        Debug.Log("현재 스쿼드 사이즈 : " +  curSquadSize);
+    }
 }

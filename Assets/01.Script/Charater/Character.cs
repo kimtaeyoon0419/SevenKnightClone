@@ -23,7 +23,7 @@ public abstract class Character : MonoBehaviour
 {
     [Header("Stat")]
     public string charName;
-    [SerializeField] protected float maxHp;
+    public float maxHp;
     [SerializeField] public float curHp { get; protected set; }
     [SerializeField] protected float atkPower;
     [SerializeField] protected float atkSpeed;
@@ -49,13 +49,13 @@ public abstract class Character : MonoBehaviour
     protected readonly int hashAttack = Animator.StringToHash("Attack");
     protected readonly int hashDie = Animator.StringToHash("Die");
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();
     }
 
-    private void Start()
+    protected virtual void OnEnable()
     {
         curHp = maxHp;
     }

@@ -14,8 +14,19 @@ public enum PlayerCharType
 /// </summary>
 public class PlayerCharater : Character
 {
+    [Header("Skill")]
+    public float maxSkillTime;
+    public float curentSkillTime;
+
     [Header("CharType")]
     [SerializeField] protected PlayerCharType charType;
+
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        curentSkillTime = maxSkillTime;
+    }
 
     private void Start()
     {
@@ -25,8 +36,14 @@ public class PlayerCharater : Character
     protected override void OnDisable()
     {
         base.OnDisable();
-        SquadManager.instance.MemberList.Remove(gameObject);
     }
+
+    protected override void Update()
+    {
+        base.Update();
+        UseSkill();
+    }
+
     
     /// <summary>
     /// 가장 가까운 적 혹은 팀을 찾음
@@ -87,6 +104,18 @@ public class PlayerCharater : Character
         else
         {
             character.TakeDmg(-atkPower);                               // 현재 공격력만큼 팀원의 체력을 회복
+        }
+    }
+
+    protected virtual void UseSkill()
+    {
+        if (curentSkillTime >= 0)
+        {
+            curentSkillTime -= Time.deltaTime;
+        }
+        else if(0 >= curentSkillTime)
+        {
+            curentSkillTime = maxSkillTime;
         }
     }
 }
