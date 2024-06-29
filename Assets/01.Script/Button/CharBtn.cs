@@ -6,14 +6,20 @@ using UnityEngine;
 public class CharBtn : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] private Character curChar;
 
     private void Awake()
     {
-        textMeshProUGUI = GetComponent<TextMeshProUGUI>();
+        textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
+    }
+
+    private void Start()
+    {
+        curChar = SquadManager.instance.MemberList[0].GetComponent<Character>();
     }
 
     private void LateUpdate()
     {
-        textMeshProUGUI.text = SquadManager.instance.MemberList[0].GetComponent<Character>().charName;
+        textMeshProUGUI.text = curChar.charName;
     }
 }

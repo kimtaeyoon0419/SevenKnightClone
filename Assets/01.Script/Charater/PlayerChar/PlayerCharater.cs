@@ -25,9 +25,9 @@ public class PlayerCharater : Character
     protected override void OnDisable()
     {
         base.OnDisable();
-        MonsterSpawnManager.instance.spawnedMonsters.Remove(gameObject);
+        SquadManager.instance.MemberList.Remove(gameObject);
     }
-
+    
     /// <summary>
     /// 가장 가까운 적 혹은 팀을 찾음
     /// </summary>

@@ -153,18 +153,15 @@ public abstract class Character : MonoBehaviour
                 {
                     Attack(enemy);
                     curAtkSpeed = atkSpeed;
-                    Debug.Log("공격합니다!");
                 }
             }
             else if (distace > atkRange)
             {
                 state = CharacterState.move;
-                Debug.Log("적이 너무 멀어요!");
             }
         }
         if (enemy == null)
         {
-            Debug.Log("적이 없습니다!");
         }
     }
 
@@ -202,7 +199,6 @@ public abstract class Character : MonoBehaviour
         if (state != CharacterState.die)
         {
             anim.SetTrigger(hashDie);
-            Debug.Log("사망 애니메이션");
             state = CharacterState.die;
 
             yield return new WaitForSeconds(1.5f);
