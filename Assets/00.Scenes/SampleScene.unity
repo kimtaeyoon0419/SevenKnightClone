@@ -1575,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8719028498495112299, guid: 6f4694cf230914750a6842ccb1ccf5e1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1775,7 +1775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4823321551467405546, guid: 25727a72a369e4ef08ba51d6b13a035a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4823321551467405546, guid: 25727a72a369e4ef08ba51d6b13a035a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1853,6 +1853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 8_Bishop
       objectReference: {fileID: 0}
+    - target: {fileID: 7573831300888823078, guid: 25727a72a369e4ef08ba51d6b13a035a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8086202439210286133, guid: 25727a72a369e4ef08ba51d6b13a035a, type: 3}
       propertyPath: m_Controller
       value: 
@@ -1890,36 +1894,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
---- !u!114 &786487243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786487239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52934407d12d620479372ddfe56a0d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charName: "\uBE44\uC20D"
-  maxHp: 50
-  atkPower: 10
-  atkSpeed: 3
-  curAtkSpeed: 0
-  findRange: 5
-  atkRange: 2
-  speed: 2
-  state: 0
-  attackPos: {fileID: 1704978616}
-  enemy: {fileID: 0}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  anim: {fileID: 786487240}
-  maxSkillTime: 3
-  curentSkillTime: 0
-  charType: 2
 --- !u!50 &786487244
 Rigidbody2D:
   serializedVersion: 4
@@ -1941,6 +1915,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &786487245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786487239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52934407d12d620479372ddfe56a0d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: "\uBE44\uC20D"
+  maxHp: 50
+  atkPower: 5
+  atkSpeed: 2
+  curAtkSpeed: 0
+  findRange: 5
+  atkRange: 1
+  speed: 2
+  state: 0
+  attackPos: {fileID: 1704978616}
+  enemy: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  anim: {fileID: 786487240}
+  maxSkillTime: 10
+  curentSkillTime: 0
+  charType: 2
 --- !u!1 &879377518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,7 +2546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3353261766282411651, guid: 9b9c007db1d704b7ab05bcecf7704cf3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3353261766282411651, guid: 9b9c007db1d704b7ab05bcecf7704cf3, type: 3}
       propertyPath: m_AnchorMax.x

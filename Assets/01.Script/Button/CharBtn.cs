@@ -16,9 +16,9 @@ public class CharBtn : MonoBehaviour
 
     private void Start()
     {
-        if (SquadManager.instance.MemberList[btnIndex] != null)
+        if (btnIndex <= SquadManager.instance.memberList.Count)
         {
-            curChar = SquadManager.instance.MemberList[btnIndex].GetComponent<PlayerCharater>();
+            curChar = SquadManager.instance.memberList[btnIndex].GetComponent<PlayerCharater>();
         }
         else
         {

@@ -30,7 +30,7 @@ public class PlayerCharater : Character
 
     private void Start()
     {
-        SquadManager.instance.MemberList.Add(gameObject);
+        SquadManager.instance.memberList.Add(gameObject);
     }
 
     protected override void OnDisable()
@@ -79,7 +79,7 @@ public class PlayerCharater : Character
         }
         else //Èú·¯ÀÏ °æ¿ì  
         {
-            foreach (GameObject teamObject in SquadManager.instance.MemberList)
+            foreach (GameObject teamObject in SquadManager.instance.memberList)
             {
                 Character curTeam = teamObject.GetComponent<Character>();
                 if (curTeam.curHp < distance)

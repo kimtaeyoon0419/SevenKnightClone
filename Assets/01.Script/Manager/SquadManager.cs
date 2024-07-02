@@ -14,8 +14,7 @@ public class SquadManager : MonoBehaviour
     /// <summary>
     /// 현재 스쿼드 멤버 리스트
     /// </summary>
-    [SerializeField] private List<GameObject> memberList = new List<GameObject>();
-    public List<GameObject> MemberList { get { return memberList; } }
+    public List<GameObject> memberList = new List<GameObject>();
 
     [Header("CameraUnit")]
     [SerializeField] private GameObject cameraUnit;
